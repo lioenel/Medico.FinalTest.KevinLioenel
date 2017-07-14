@@ -1,0 +1,27 @@
+﻿@model Employee
+@{
+    ViewBag.Title = "Update Employee";
+}
+
+@using ((Html.BeginForm("Update", "Home", FormMethod.Post)))
+{
+    @Html.HiddenFor(model => model.Code)
+    <div class="row col-md-12">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>@Html.TextBoxFor(model => model.Name) @Html.ValidationMessageFor(model => model.Name)</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>@Html.TextBoxFor(model => model.Phone) @Html.ValidationMessageFor(model => model.Phone)</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>@Html.TextAreaFor(model => model.Address) @Html.ValidationMessageFor(model => model.Address)</td>
+            </tr>
+        </table>
+        @Html.ActionLink("Back", "Index", "Home")
+        <button>Save</button>
+    </div>
+}

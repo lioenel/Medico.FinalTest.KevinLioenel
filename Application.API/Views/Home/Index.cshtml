@@ -1,0 +1,37 @@
+﻿@model List<Employee>
+@{
+    ViewBag.Title = "List Employee";
+}
+
+<div class="row col-md-12">
+    @Html.ActionLink("Create", "Create", "Home") 
+    <br /><br />
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td class="col-md-3">Name</td>
+                    <td class="col-md-3">Phone</td>
+                    <td class="col-md-3">Address</td>
+                    <td class="col-md-3">Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Employee in Model)
+                {
+                    <tr>
+                        <td>@Employee.Name</td>
+                        <td>@Employee.Phone</td>
+                        <td>@Employee.Address</td>
+                        <td> 
+                            @Html.ActionLink("Detail", "Detail", "Home", new { id = Employee.Code }, null)
+                            @Html.ActionLink("Update", "Update", "Home", new { id = Employee.Code }, null)
+                            @Html.ActionLink("Delete", "Delete", "Home", new { id = Employee.Code }, null)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div> 
+</div>
+
